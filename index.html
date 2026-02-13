@@ -69,6 +69,10 @@ button {
 
 <body>
 
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
 <h1 id="herName"></h1>
 
 <div id="message"></div>
@@ -83,10 +87,6 @@ button {
 <button id="yesBtn" onclick="window.location.href='yes.html'">YES ❤️</button>
 <button id="noBtn">NO 😜</button>
 
-<audio id="bgMusic" loop>
-    <source src="song.mp3" type="audio/mpeg">
-</audio>
-
 <script>
 
 // 🔐 PASSWORD PROTECTION
@@ -95,10 +95,14 @@ let password = prompt("Enter our secret word ❤️");
 if(password === null || password.trim() !== "Meghanarendra"){
     document.body.innerHTML = "<h1 style='color:white;margin-top:200px;'>Wrong Password ❤️</h1>";
 } else {
-    // Auto play music after password correct
-    setTimeout(function(){
-        document.getElementById("bgMusic").play();
-    }, 1000);
+
+    // 🎵 Play music on first click (browser safe)
+    document.addEventListener("click", function playMusicOnce() {
+        let music = document.getElementById("bgMusic");
+        music.play();
+        document.removeEventListener("click", playMusicOnce);
+    });
+
 }
 
 // 💕 NAME TYPING ANIMATION
