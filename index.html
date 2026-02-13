@@ -83,13 +83,22 @@ button {
 <button id="yesBtn" onclick="window.location.href='yes.html'">YES ❤️</button>
 <button id="noBtn">NO 😜</button>
 
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
 <script>
 
 // 🔐 PASSWORD PROTECTION
 let password = prompt("Enter our secret word ❤️");
 
-if(password !== "Meghanarendra"){
+if(password === null || password.trim() !== "Meghanarendra"){
     document.body.innerHTML = "<h1 style='color:white;margin-top:200px;'>Wrong Password ❤️</h1>";
+} else {
+    // Auto play music after password correct
+    setTimeout(function(){
+        document.getElementById("bgMusic").play();
+    }, 1000);
 }
 
 // 💕 NAME TYPING ANIMATION
@@ -124,15 +133,6 @@ noBtn.addEventListener("mouseover", function() {
     noBtn.style.top = Math.random() * window.innerHeight + "px";
     noBtn.style.left = Math.random() * window.innerWidth + "px";
 });
-    <br><br>
-<button onclick="document.getElementById('bgMusic').play()" 
-style="background:#ff4e8a;color:white;">
-Play Our Song 🎵
-</button>
-
-<audio id="bgMusic" loop>
-    <source src="song.mp3" type="audio/mpeg">
-</audio>
 
 // ❤️ FLOATING HEARTS
 function createHeart() {
