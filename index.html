@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Meghana ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: white;
+    text-align: center;
+    font-family: Arial;
+    overflow-x: hidden;
+}
+
+#herName {
+    margin-top: 60px;
+    font-size: 45px;
+    color: #ff4e8a;
+    letter-spacing: 3px;
+}
+
+#message {
+    width: 70%;
+    margin: 30px auto;
+    font-size: 20px;
+    min-height: 120px;
+}
+
+img {
+    width: 220px;
+    border-radius: 20px;
+    margin: 15px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+#yesBtn {
+    background: #ff4e8a;
+    color: white;
+}
+
+#noBtn {
+    background: white;
+    color: #ff4e8a;
+    position: absolute;
+}
+
+.heart {
+    position: fixed;
+    color: red;
+    animation: float 4s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<h1 id="herName"></h1>
+
+<div id="message"></div>
+
+<div>
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+</div>
+
+<h2>Will You Be Mine Forever? 💍</h2>
+
+<button id="yesBtn" onclick="window.location.href='yes.html'">YES ❤️</button>
+<button id="noBtn">NO 😜</button>
+
+<script>
+
+// 🔐 PASSWORD PROTECTION
+let password = prompt("Enter our special date (DDMMYYYY)");
+
+if(password !== "14022025"){   // 👉 CHANGE this to your real special date
+    document.body.innerHTML = "<h1 style='color:white;margin-top:200px;'>Wrong Password ❤️</h1>";
+}
+
+// 💕 NAME TYPING ANIMATION
+let herName = "Meghana ❤️";
+let index = 0;
+
+function typeName() {
+    if (index < herName.length) {
+        document.getElementById("herName").innerHTML += herName.charAt(index);
+        index++;
+        setTimeout(typeName, 150);
+    }
+}
+typeName();
+
+// 💌 LOVE MESSAGE TYPING
+let text = "From our first movie where I was nervous holding your hand... to beach memories and Royal Enfield rides... every moment with you is my favorite. Meghana, you are my peace, my happiness, my forever. ❤️";
+let i = 0;
+
+function typeMessage() {
+    if (i < text.length) {
+        document.getElementById("message").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeMessage, 40);
+    }
+}
+setTimeout(typeMessage, 2000);
+
+// 😄 RUNNING NO BUTTON
+let noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", function() {
+    noBtn.style.top = Math.random() * window.innerHeight + "px";
+    noBtn.style.left = Math.random() * window.innerWidth + "px";
+});
+
+// ❤️ FLOATING HEARTS
+function createHeart() {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 4000);
+}
+setInterval(createHeart, 300);
+
+</script>
+
+</body>
+</html>
