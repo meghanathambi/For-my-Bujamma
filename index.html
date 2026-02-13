@@ -124,6 +124,15 @@ noBtn.addEventListener("mouseover", function() {
     noBtn.style.top = Math.random() * window.innerHeight + "px";
     noBtn.style.left = Math.random() * window.innerWidth + "px";
 });
+    <br><br>
+<button onclick="document.getElementById('bgMusic').play()" 
+style="background:#ff4e8a;color:white;">
+Play Our Song 🎵
+</button>
+
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
 
 // ❤️ FLOATING HEARTS
 function createHeart() {
